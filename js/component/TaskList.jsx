@@ -1,12 +1,11 @@
 
     /*******************************************************************************************************************
     *   Represents the TaskList component.
-    *   This is an example for a stateless component.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class TaskList extends React.Component
+    class TaskListUnconnected extends React.Component
     {
         /***************************************************************************************************************
         *   Being invoked every time this component renders.
@@ -76,3 +75,5 @@
             return items;
         }
     }
+
+    const TaskList = Connector.connectTaskList();
