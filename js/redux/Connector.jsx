@@ -40,23 +40,12 @@
         ***************************************************************************************************************/
         static connectTaskInput()
         {
-            const mapStateToProps = ( state ) => {
-                return {
-                    inputError: state.inputError,
-                    inputText:  state.inputText
-                }
-            };
-
             const mapDispatchToProps = {
-                onTaskCreate:      Action.createTaskAction,
-                onSetInputField:   Action.setInputFieldAction,
-                onClearInputField: Action.clearInputFieldAction,
-                onSetInputError:   Action.setInputErrorAction,
-                onClearInputError: Action.clearInputErrorAction,
+                onTaskCreate: Action.createTaskAction,
             };
 
             return ReactRedux.connect(
-                mapStateToProps,
+                null,
                 mapDispatchToProps
             )( TaskInputUnconnected );
         }

@@ -1,12 +1,28 @@
 
     /*******************************************************************************************************************
     *   Represents the input component that lets the user create new tasks.
+    *   This is an example for a stateful and controlled component.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
     class TaskInputUnconnected extends React.Component
     {
+        /***************************************************************************************************************
+        *   Initializes this component by setting the initial state.
+        *
+        *   @param {Object} props The initial properties being passed in the component tag.
+        ***************************************************************************************************************/
+        constructor( props )
+        {
+            super( props );
+
+            this.state = {
+                inputError: false,
+                inputText:  "",
+            }
+        }
+
         /***************************************************************************************************************
         *   Being invoked every time this component renders.
         *
@@ -21,8 +37,8 @@
                     id="newTask"
                     type="text"
                     maxLength="50"
-                    className={ this.props.inputError ? "input error" : "input" }
-                    value={     this.props.inputText }
+                    className={ this.state.inputError ? "input error" : "input" }
+                    value={     this.state.inputText }
                     onChange={  ( event ) => { this.onInputChange( event ); } }
                 />
 
@@ -46,9 +62,12 @@
         ***************************************************************************************************************/
         onInputChange( event )
         {
-            // assign text to input field
-            this.props.onClearInputError();
-            this.props.onSetInputField( event.target.value );
+            this.setState(
+                {
+                    inputError: false,
+                    inputText:  event.target.value,
+                }
+            );
         }
 
         /***************************************************************************************************************
@@ -62,20 +81,28 @@
             event.preventDefault();
 
             // trim entered text
-            let enteredText = this.props.inputText.trim();
+            let enteredText = this.state.inputText.trim();
 
             // check entered text
             if ( enteredText.length === 0 )
             {
                 // set error state
-                this.props.onSetInputError();
-                this.props.onClearInputField();
+                this.setState(
+                    {
+                        inputError: true,
+                        inputText:  "",
+                    }
+                );
             }
             else
             {
                 // clear error state
-                this.props.onClearInputError();
-                this.props.onClearInputField();
+                this.setState(
+                    {
+                        inputError: false,
+                        inputText:  "",
+                    }
+                );
 
                 // invoke parent listener
                 this.props.onTaskCreate( enteredText );
