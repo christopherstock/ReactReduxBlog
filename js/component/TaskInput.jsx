@@ -30,8 +30,6 @@
         ***************************************************************************************************************/
         render()
         {
-            console.log( "TaskInput.render() being invoked" );
-
             return <form onSubmit={ ( event ) => { this.onFormSubmit( event ); } }>
 
                 { /* new task input */ }
@@ -64,8 +62,6 @@
         ***************************************************************************************************************/
         onInputChange( event )
         {
-            console.log( "TaskInput.onInputChange being invoked" );
-
             this.setState(
                 {
                     inputError: false,
@@ -81,8 +77,6 @@
         ***************************************************************************************************************/
         onFormSubmit( event )
         {
-            console.log( "TaskInput.onFormSubmit being invoked" );
-
             // suppress page reload
             event.preventDefault();
 
@@ -90,11 +84,8 @@
             let enteredText = this.state.inputText.trim();
 
             // check entered text
-            console.log( "Trimmed text in the box is [" + enteredText + "]" );
             if ( enteredText.length === 0 )
             {
-                console.log( "Empty text input detected." );
-
                 // set error state
                 this.setState(
                     {

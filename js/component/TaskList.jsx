@@ -15,9 +15,7 @@
         ***************************************************************************************************************/
         render()
         {
-            console.log( "TaskList.render() being invoked" );
-
-            // animate main container height later
+            // animate main container height
             document.getElementById( "mainContainer" ).style.height = ( 150 + ( this.props.taskList.length * 55 ) ) + "px";
 
             return <ul id="taskList">

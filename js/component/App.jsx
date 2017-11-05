@@ -36,8 +36,6 @@
         ***************************************************************************************************************/
         render()
         {
-            console.log( "App.render() being invoked" );
-
             return <div>
 
                 { /* title */ }
@@ -66,8 +64,6 @@
         ***************************************************************************************************************/
         createTask( taskName )
         {
-            console.log( "App.createTask( " + taskName + " ) being invoked" );
-
             // copy original array
             let newTaskList = this.state.taskList.slice();
             newTaskList.push( taskName );
@@ -87,8 +83,6 @@
         ***************************************************************************************************************/
         deleteTask( taskIndex )
         {
-            console.log( "App.deleteTask( " + taskIndex + " ) being invoked" );
-
             // copy original array
             let newTaskList = this.state.taskList.slice();
             newTaskList.splice( taskIndex, 1 );
@@ -108,8 +102,6 @@
         ***************************************************************************************************************/
         moveTaskUp( taskIndex )
         {
-            console.log( "App.moveTaskUp( " + taskIndex + " ) being invoked" );
-
             if ( taskIndex > 0 )
             {
                 // copy original array
@@ -137,8 +129,6 @@
         ***************************************************************************************************************/
         moveTaskDown( taskIndex )
         {
-            console.log( "App.moveTaskDown( " + taskIndex + " ) being invoked" );
-
             if ( taskIndex < this.state.taskList.length - 1 )
             {
                 // copy original array
@@ -157,60 +147,5 @@
                     }
                 )
             }
-        }
-
-        /***************************************************************************************************************
-        *   Being invoked before this component has been mounted.
-        ***************************************************************************************************************/
-        componentWillMount()
-        {
-            console.log( "App.componentWillMount() being invoked" );
-        }
-
-        /***************************************************************************************************************
-        *   Being invoked after this component has been mounted.
-        ***************************************************************************************************************/
-        componentDidMount()
-        {
-            console.log( "App.componentDidMount() being invoked" );
-        }
-
-        /***************************************************************************************************************
-        *   Being invoked before this component has been updated.
-        *
-        *   @param {Object} nextProps   The props to set on updating.
-        *   @param {Object} nextState   The state to set on updating.
-        *   @param {Object} nextContext The context to set on updating.
-        ***************************************************************************************************************/
-        componentWillUpdate( nextProps, nextState, nextContext )
-        {
-            console.log( "App.componentWillUpdate() being invoked" );
-        }
-
-        /***************************************************************************************************************
-        *   Being invoked before this component receives props.
-        *
-        *   @param {Object} nextProps   The props to set on updating.
-        *   @param {Object} nextContext The context to set on updating.
-        ***************************************************************************************************************/
-        componentWillReceiveProps( nextProps, nextContext )
-        {
-            console.log( "App.componentWillReceiveProps() being invoked" );
-        }
-
-        /***************************************************************************************************************
-        *   Being invoked after this component has been updated.
-        ***************************************************************************************************************/
-        componentDidUpdate()
-        {
-            console.log( "App.componentDidUpdate() being invoked" );
-        }
-
-        /***************************************************************************************************************
-        *   Being invoked before this component has been unmounted.
-        ***************************************************************************************************************/
-        componentWillUnmount()
-        {
-            console.log( "App.componentWillUnmount() being invoked" );
         }
     }
