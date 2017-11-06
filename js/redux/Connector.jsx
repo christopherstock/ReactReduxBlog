@@ -2,6 +2,8 @@
     /*******************************************************************************************************************
     *   Specifies all redux connector methods.
     *
+    *   TODO unify to single connector method?
+    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
@@ -22,9 +24,9 @@
 
             const mapDispatchToProps =
             {
-                onTaskDelete:   Action.deleteTaskAction,
-                onTaskMoveUp:   Action.moveTaskUpAction,
-                onTaskMoveDown: Action.moveTaskDownAction,
+                onTaskDelete:   Action.deleteTask,
+                onTaskMoveUp:   Action.moveTaskUp,
+                onTaskMoveDown: Action.moveTaskDown,
             };
 
             return ReactRedux.connect(
@@ -41,7 +43,7 @@
         static connectTaskInput()
         {
             const mapDispatchToProps = {
-                onTaskCreate: Action.createTaskAction,
+                onTaskCreate: Action.createTask,
             };
 
             return ReactRedux.connect(

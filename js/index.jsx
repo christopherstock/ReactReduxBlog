@@ -11,9 +11,9 @@
     // create redux store
     let store = Redux.createStore( Reducer.taskListReducer );
 
-    store.dispatch( Action.createTaskAction( "Müll rausbringen" ) );
-    store.dispatch( Action.createTaskAction( "Abwaschen"        ) );
-    store.dispatch( Action.createTaskAction( "Wäsche waschen"   ) );
+    store.dispatch( Action.createTask( "Müll rausbringen" ) );
+    store.dispatch( Action.createTask( "Abwaschen"        ) );
+    store.dispatch( Action.createTask( "Wäsche waschen"   ) );
 
     // render App component into main container
     ReactDOM.render(

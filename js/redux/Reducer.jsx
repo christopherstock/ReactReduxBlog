@@ -47,30 +47,6 @@
                     break;
                 }
 
-                case ACTION_SET_INPUT_FIELD:
-                {
-                    newState = Reducer.setInputFieldReducer( state, action );
-                    break;
-                }
-
-                case ACTION_CLEAR_INPUT_FIELD:
-                {
-                    newState = Reducer.clearInputFieldReducer( state );
-                    break;
-                }
-
-                case ACTION_SET_INPUT_ERROR:
-                {
-                    newState = Reducer.setInputErrorReducer( state );
-                    break;
-                }
-
-                case ACTION_CLEAR_INPUT_ERROR:
-                {
-                    newState = Reducer.clearInputErrorReducer( state );
-                    break;
-                }
-
                 default:
                 {
                     newState = state;
@@ -81,6 +57,18 @@
             console.log( "taskListReducer END\naction", action, "}\nstate", state, "\n " );
 
             return newState;
+        }
+
+        /***************************************************************************************************************
+        *   Creates and returns the default state.
+        *
+        *   @return {Object} The initially constructed state object.
+        ***************************************************************************************************************/
+        static createDefaultState()
+        {
+            return {
+                taskList: [],
+            };
         }
 
         /***************************************************************************************************************
@@ -97,9 +85,7 @@
             newTasks.push( action.taskName );
 
             return {
-                taskList:   newTasks,
-                inputError: state.inputError,
-                inputText:  state.inputText,
+                taskList: newTasks,
             };
         }
 
@@ -117,9 +103,7 @@
             newTasks.splice( action.taskIndex, 1 );
 
             return {
-                taskList:   newTasks,
-                inputError: state.inputError,
-                inputText:  state.inputText,
+                taskList: newTasks,
             };
         }
 
@@ -141,9 +125,7 @@
             newTasks[ action.taskIndex     ] = taskToMoveDown;
 
             return {
-                taskList:   newTasks,
-                inputError: state.inputError,
-                inputText:  state.inputText,
+                taskList: newTasks,
             };
         }
 
@@ -165,88 +147,7 @@
             newTasks[ action.taskIndex + 1 ] = taskToMoveDown;
 
             return {
-                taskList:   newTasks,
-                inputError: state.inputError,
-                inputText:  state.inputText,
-            };
-        }
-
-        /***************************************************************************************************************
-        *   Reduces the state in order to set a text for the input field.
-        *
-        *   @param {Object} state  The existing state object.
-        *   @param {Object} action The action to perform on the state object.
-        *
-        *   @return {Object} The new and reduced state object.
-        ***************************************************************************************************************/
-        static setInputFieldReducer( state, action )
-        {
-            return {
-                taskList:   state.taskList,
-                inputError: state.inputError,
-                inputText:  action.inputText,
-            };
-        }
-
-        /***************************************************************************************************************
-        *   Reduces the state in order to clear the text in the input field.
-        *
-        *   @param {Object} state The existing state object.
-        *
-        *   @return {Object} The new and reduced state object.
-        ***************************************************************************************************************/
-        static clearInputFieldReducer( state )
-        {
-            return {
-                taskList:   state.taskList,
-                inputError: state.inputError,
-                inputText:  "",
-            };
-        }
-
-        /***************************************************************************************************************
-        *   Reduces the state in order to set the input error for the input field.
-        *
-        *   @param {Object} state The existing state object.
-        *
-        *   @return {Object} The new and reduced state object.
-        ***************************************************************************************************************/
-        static setInputErrorReducer( state )
-        {
-            return {
-                taskList:   state.taskList,
-                inputError: true,
-                inputText:  state.inputText,
-            };
-        }
-
-        /***************************************************************************************************************
-        *   Reduces the state in order to clear the input error for the input field.
-        *
-        *   @param {Object} state The existing state object.
-        *
-        *   @return {Object} The new and reduced state object.
-        ***************************************************************************************************************/
-        static clearInputErrorReducer( state )
-        {
-            return {
-                taskList:   state.taskList,
-                inputError: false,
-                inputText:  state.inputText,
-            };
-        }
-
-        /***************************************************************************************************************
-        *   Creates and returns the default state.
-        *
-        *   @return {Object} The initially constructed state object.
-        ***************************************************************************************************************/
-        static createDefaultState()
-        {
-            return {
-                taskList:   [],
-                inputError: false,
-                inputText:  "",
+                taskList: newTasks,
             };
         }
     }
