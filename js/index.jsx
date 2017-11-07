@@ -1,8 +1,8 @@
 
     // specify the application title
-    const APPLICATION_TITLE = "React Redux Task List";
+    const APPLICATION_TITLE = "React Task List";
 
-    // acclaim debug console and set page title
+    // set page title
     document.title = APPLICATION_TITLE;
 
     // reference the main container
