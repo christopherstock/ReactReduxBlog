@@ -2,27 +2,25 @@
     /*******************************************************************************************************************
     *   Specifies all redux connector methods.
     *
-    *   TODO unify to single connector method?
-    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
     class Connector
     {
         /***************************************************************************************************************
-        *   Connects the react component 'TaskList' with redux and returns the connected instance.
+        *   Connects the specified react component with redux and returns the connected instance.
         *
         *   @return {Object} The connected react component.
         ***************************************************************************************************************/
         static connectTaskList()
         {
-            const mapStateToProps = ( state ) => {
+            const stateToProps = ( state ) => {
                 return {
                     taskList: state.taskList
                 }
             };
 
-            const mapDispatchToProps =
+            const dispatchToProps =
             {
                 onTaskDelete:   Action.deleteTask,
                 onTaskMoveUp:   Action.moveTaskUp,
@@ -30,25 +28,25 @@
             };
 
             return ReactRedux.connect(
-                mapStateToProps,
-                mapDispatchToProps
+                stateToProps,
+                dispatchToProps
             )( TaskListUnconnected );
         }
 
         /***************************************************************************************************************
-        *   Connects the react component 'TaskInput' with redux and returns the connected instance.
+        *   Connects the specified react component with redux and returns the connected instance.
         *
         *   @return {Object} The connected react component.
         ***************************************************************************************************************/
         static connectTaskInput()
         {
-            const mapDispatchToProps = {
+            const dispatchToProps = {
                 onTaskCreate: Action.createTask,
             };
 
             return ReactRedux.connect(
                 null,
-                mapDispatchToProps
+                dispatchToProps
             )( TaskInputUnconnected );
         }
     }

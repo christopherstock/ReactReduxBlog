@@ -30,6 +30,8 @@
         ***************************************************************************************************************/
         render()
         {
+            console.log( "TaskInput.render() being invoked" );
+
             return <form onSubmit={ ( event ) => { this.onFormSubmit( event ); } }>
 
                 { /* new task input */ }
