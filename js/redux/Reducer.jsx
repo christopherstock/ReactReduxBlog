@@ -17,7 +17,9 @@
         ***************************************************************************************************************/
         static taskListReducer( state = Reducer.createDefaultState() , action )
         {
-            console.log( "taskListReducer START\naction", action, "}\nstate", state );
+            console.log( "Reducer.taskListReducer being invoked" );
+            console.log( " applying action ", action );
+            console.log( " old state is ", state );
 
             let newState = null;
 
@@ -54,7 +56,7 @@
                 }
             }
 
-            console.log( "taskListReducer END\naction", action, "}\nstate", state, "\n " );
+            console.log( " new state is ", newState );
 
             return newState;
         }
