@@ -112,4 +112,12 @@
         };
     }
 
-    const TaskInput = Connector.connectTaskInput();
+    const TaskInputStateToProps    = null;
+    const TaskInputDispatchToProps = {
+        onTaskCreate: Action.createTask,
+    };
+
+    const TaskInput = ReactRedux.connect(
+        TaskInputStateToProps,
+        TaskInputDispatchToProps
+    )( TaskInputUnconnected );

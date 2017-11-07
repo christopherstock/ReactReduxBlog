@@ -78,4 +78,18 @@
         }
     }
 
-    const TaskList = Connector.connectTaskList();
+    const TaskListStateToProps = ( state ) => {
+        return {
+            taskList: state.taskList
+        }
+    };
+    const TaskListDispatchToProps = {
+        onTaskDelete:   Action.deleteTask,
+        onTaskMoveUp:   Action.moveTaskUp,
+        onTaskMoveDown: Action.moveTaskDown,
+    };
+
+    const TaskList = ReactRedux.connect(
+        TaskListStateToProps,
+        TaskListDispatchToProps
+    )( TaskListUnconnected );
