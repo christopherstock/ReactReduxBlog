@@ -15,7 +15,7 @@
         *
         *   @return {State} The new state object.
         ***************************************************************************************************************/
-        static taskListReducer( state = new State(), action )
+        static globalReducer( state = new State(), action )
         {
             console.log( "Reducer.taskListReducer being invoked" );
             console.log( " applying action ", action );

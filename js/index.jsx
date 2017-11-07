@@ -9,7 +9,7 @@
     let mainContainer = document.getElementById( "mainContainer" );
 
     // create redux store
-    let store = Redux.createStore( Reducer.taskListReducer );
+    let store = Redux.createStore( Reducer.globalReducer );
 
     store.dispatch( Action.createTask( "Müll rausbringen" ) );
     store.dispatch( Action.createTask( "Abwaschen"        ) );
